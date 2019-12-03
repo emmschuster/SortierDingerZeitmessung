@@ -1,7 +1,7 @@
 package alleSortierverfahrenZeitmesung;
 
 public class Selectionsort {
-	private int zaehler=0;
+	private int zaehler;
 	private int[] afuellung;
 	
 	public Selectionsort(int x[]) {
@@ -11,12 +11,12 @@ public class Selectionsort {
 	
 	public int[] selectionsort(int[] x) {	
 		for (int i = 0; i < x.length - 1; i++) {
-			for (int j = i + 1; j < x.length; j++) { //warum springt er da ned eini?
+			for (int j = i + 1; j < x.length; j++) { 
 				if (x[i] > x[j]) {
 					int temp = x[i];
 					x[i] = x[j];
 					x[j] = temp;
-					System.out.println("hallo");
+					zaehler++;
 				}
 			}
 		}
@@ -25,7 +25,7 @@ public class Selectionsort {
 	}
 
 	public void print() {
-		System.out.println("\nSelectionsort: ");
+		System.out.println("Selectionsort: ");
 		System.out.println("Anzahl der Durchgänge : "+zaehler);
 		for (int i = 0; i < afuellung.length; i++) {
 			System.out.print(afuellung[i]+"   ");

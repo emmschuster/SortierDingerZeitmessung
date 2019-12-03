@@ -10,7 +10,7 @@ public class Bogosort {
 	}
 	
 	private void pruefen(int[] a) { 
-		System.out.println("\nBogosort: ");
+		System.out.println("Bogosort: ");
 		System.out.println("es werden " + a.length + " elemente sortiert...");
 		while(!isSortiert(a)) {
 			zaehler++;

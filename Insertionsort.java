@@ -9,7 +9,7 @@ public class Insertionsort {
 	}
 	
 	public void print() {
-		System.out.println("\nInsertionsort: ");
+		System.out.println("Insertionsort: ");
 		System.out.println("Anzahl der Durchgänge : "+zeahler);
 		for (int i = 0; i < afuellung.length; i++) {
 			System.out.print(afuellung[i]+"	");
