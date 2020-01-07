@@ -9,12 +9,16 @@ public class AllMain {
 	private static int[] ranArray;
 	private static int sortierArt;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { //main immer static weil de darf es nur 1 mal geben 
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Wie lang soll der Array sein?");
-		laengeArray = sc.nextInt();
-		ranArray = new int[laengeArray];
-		fillArray(ranArray);
+		try {
+			laengeArray = sc.nextInt();
+			ranArray = new int[laengeArray];
+			fillArray(ranArray);
+		} catch (Exception e) {
+			System.out.println("Es dürfen nur Zahlen höher 0 eingeben werden!!!");
+		}
 		System.out.println("\nDein Array : ");
 		for (int i = 0; i < ranArray.length; i++) {
 			System.out.print(ranArray[i] + "	");
@@ -22,15 +26,15 @@ public class AllMain {
 		System.out.println("\n");
 //		System.out.println("hallo1");
 		System.out.println(
-				"Mithilfe welchem Verfahren soll er sortiert werden?\nBubblesort = 1\nBogosort = 2\nSelectionsort = 3\nInsertionsort = 4");
+				"Mithilfe welchem Verfahren soll er sortiert werden?\nBubblesort = 1\nBogosort = 2\nSelectionsort = 3\nInsertionsort = 4\nQuicksort = 5");
 		try {
 			sortierArt = sc.nextInt();
 		} catch (Exception e) {
 			System.out.println("Es dürfen nur Zahlen eingeben werden!!!");
 		}
 		System.out.println("");
-		if (sortierArt > 4) {
-			System.out.println("Die Zahl muss zwischen 1 und 4 liegen!!!");
+		if (sortierArt > 5 || sortierArt < 1) {
+			System.out.println("Die Zahl muss zwischen 1 und 5 liegen!!!");
 		} else {
 			switch (sortierArt) {
 			case 1:
@@ -62,6 +66,13 @@ public class AllMain {
 				long eis = System.nanoTime();
 				zeitausgabe(ais, eis);
 				break;
+			case 5: 
+				long aqs =System.nanoTime();
+				Quicksort qs=new Quicksort(ranArray);
+				qs.print();
+				long eqs= System.nanoTime();
+				zeitausgabe(aqs, eqs);
+				break;
 			}
 		}
 		sc.close();
@@ -69,7 +80,7 @@ public class AllMain {
 
 	private static void zeitausgabe(long abbs, long ebbs) {
 		long zeit = ebbs - abbs;
-		System.out.println("Es hat " + zeit + " nano Sekunden gedauert.");
+		System.out.println("Es hat " + zeit/1000/1000 + " Sekunden gedauert.\nDas waren "+zeit/1000+" milli sec und "+zeit+" nano sec");
 	}
 
 	private static void fillArray(int[] x) {
