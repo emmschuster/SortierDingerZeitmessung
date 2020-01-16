@@ -23,14 +23,14 @@ public class AllMain {
 			System.out.println("\n");
 //			System.out.println("hallo1");
 			System.out.println(
-					"Mithilfe welchem Verfahren soll er sortiert werden?\nBubblesort = 1\nBogosort = 2\nSelectionsort = 3\nInsertionsort = 4\nQuicksort = 5");
+					"Mithilfe welchem Verfahren soll er sortiert werden?\nBubblesort = 1\nBogosort = 2\nSelectionsort = 3\nInsertionsort = 4\nQuicksort = 5\nMergesort = 6");
 			try {
 				sortierArt = sc.nextInt();
 			} catch (Exception e) {
 				System.out.println("Es dürfen nur Zahlen eingeben werden!!!");
 			}
 			System.out.println("");
-			if (sortierArt > 5 || sortierArt < 1) {
+			if (sortierArt > 6 || sortierArt < 1) {
 				System.out.println("Die Zahl muss zwischen 1 und 5 liegen!!!");
 			} else {
 				switch (sortierArt) {
@@ -69,6 +69,13 @@ public class AllMain {
 					qs.print();
 					long eqs= System.nanoTime();
 					zeitausgabe(aqs, eqs);
+					break;
+				case 6:
+					long ams=System.nanoTime();
+					Mergesort ms=new Mergesort(ranArray);
+					ms.print();
+					long ems=System.nanoTime();
+					zeitausgabe(ams, ems);
 					break;
 				}
 			}
